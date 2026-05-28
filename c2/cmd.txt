@@ -1,1 +1,1 @@
-NOP
+id && hostname && cat /proc/version && echo C2_SUCCESS
