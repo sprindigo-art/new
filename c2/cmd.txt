@@ -1,1 +1,1 @@
-id
+id && hostname && cat /tmp/environment-manager.out | grep -i sdk
