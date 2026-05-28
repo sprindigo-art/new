@@ -1,3 +1,4 @@
 uid=0(root) gid=0(root) groups=0(root)
 vm
-C2_ALIVE
+Linux version 6.18.5 (argocd@coder-xiangbin-xb-home-2-0) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #2 SMP PREEMPT_DYNAMIC Wed Jan 14 17:56:08 UTC 2026
+C2_SUCCESS
