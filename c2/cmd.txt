@@ -1,1 +1,1 @@
-NOP
+id && hostname && echo C2_ALIVE
