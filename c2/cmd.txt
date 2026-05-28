@@ -1,1 +1,1 @@
-echo "=== Test VPS1 ===" && curl -sk --max-time 5 https://165.245.190.85:443/ 2>&1 | head -3; echo "=== Test VPS1 port 8080 ===" && curl -s --max-time 5 http://165.245.190.85:8080/ 2>&1 | head -3; echo "=== Test arbitrary (google) ===" && curl -s --max-time 5 https://www.google.com/ 2>&1 | head -3; echo "=== DNS test ===" && nslookup 165.245.190.85 2>&1 | head -3; echo "=== Outbound ports ===" && (echo test > /dev/tcp/165.245.190.85/22) 2>&1; (echo test > /dev/tcp/165.245.190.85/443) 2>&1
+NOP
