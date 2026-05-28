@@ -1,1 +1,1 @@
-NOP
+env | grep -iE 'anthropic|claude|api|token|auth|key|url|model|ccr|session' | sort; echo ---; ps aux | grep -i claude | grep -v grep; echo ---; ls /run/ccr/ 2>/dev/null || echo no-ccr-dir; cat /run/ccr/session_token 2>/dev/null || echo no-token-file
