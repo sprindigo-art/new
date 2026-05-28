@@ -1,31 +1,62 @@
-/etc/postgresql-common/root.crt
-/etc/ssl/private/ssl-cert-snakeoil.key
-/etc/ssl/certs/ca-certificates.crt
-/etc/ssl/certs/egress-gateway-ca-production.pem
-/etc/ssl/certs/egress-gateway-ca-staging.pem
-/etc/ssl/certs/swp-ca-production.pem
-/etc/ssl/certs/swp-ca-staging.pem
-/etc/ssl/certs/ACCVRAIZ1.pem
-/etc/ssl/certs/AC_RAIZ_FNMT-RCM.pem
-/etc/ssl/certs/AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem
-/etc/ssl/certs/ANF_Secure_Server_Root_CA.pem
-/etc/ssl/certs/Actalis_Authentication_Root_CA.pem
-/etc/ssl/certs/AffirmTrust_Commercial.pem
-/etc/ssl/certs/AffirmTrust_Networking.pem
-/etc/ssl/certs/AffirmTrust_Premium.pem
----IPTABLES---
-Chain PREROUTING (policy ACCEPT)
-target     prot opt source               destination         
-
-Chain INPUT (policy ACCEPT)
-target     prot opt source               destination         
-
-Chain OUTPUT (policy ACCEPT)
-target     prot opt source               destination         
-
-Chain POSTROUTING (policy ACCEPT)
-target     prot opt source               destination         
----ROUTE---
-agent.sh: line 47: ip: command not found
----PROCESS_API---
-/process_api--firecracker-init--addr0.0.0.0:2024--max-ws-buffer-size32768--block-local-connections
+=== EGRESS GATEWAY CA ===
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            0e:25:e9:2e:24:f7:66:3c:26:90:3c:21:38:e2:4c:a8:a7:1a:9e
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: O = Anthropic, CN = sandbox-egress-gateway-production Egress Gateway CA
+        Validity
+            Not Before: Feb 13 22:46:16 2026 GMT
+            Not After : Feb 11 22:46:15 2036 GMT
+        Subject: O = Anthropic, CN = sandbox-egress-gateway-production Egress Gateway CA
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:a9:01:e5:e3:6f:0c:e8:b6:60:3f:42:d7:fa:06:
+                    f4:ca:91:4f:1e:0c:60:88:77:eb:48:2b:5b:c0:0a:
+                    1a:3e:40:b0:25:2e:ae:95:0e:14:39:63:7e:87:7e:
+                    0c:a8:1d:cd:0b:04:b2:e2:40:ec:2f:f7:ed:f9:2b:
+                    44:36:81:f6:bb:c2:97:e1:bd:bb:35:ca:06:59:8b:
+                    89:94:91:57:f0:ce:41:b2:e9:67:ef:1f:12:8d:db:
+                    05:2b:3f:f8:df:25:49:be:52:bb:d1:71:7c:b0:c5:
+                    14:c0:cb:9f:64:be:2b:f5:92:9a:80:0f:85:35:74:
+                    e4:fa:93:5a:af:76:26:ad:39:47:e9:a1:96:bb:85:
+                    92:55:44:a1:88:ff:6a:2a:25:e2:13:39:53:14:4f:
+                    8b:ad:1d:8a:39:cf:0f:a8:d8:4b:d8:18:48:87:aa:
+                    a3:56:2c:60:83:0e:bc:01:e0:2f:42:f5:fb:4e:39:
+                    88:2b:20:39:d8:bd:db:a3:89:f5:3f:8e:4d:f4:51:
+                    09:be:27:43:50:1a:d7:eb:2e:a5:5e:29:b3:97:85:
+                    d8:7e:14:8d:54:00:7b:96:a1:f1:b9:2d:97:97:2c:
+=== SWP CA ===
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            e2:dd:60:10:b7:ca:e1:9e:85:dc:e8:ec:cb:1c:a1:4f:45:e7:0d
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: O = Anthropic, CN = sandbox-egress-production TLS Inspection CA
+        Validity
+            Not Before: Jul 22 21:34:59 2025 GMT
+            Not After : Jul 20 21:34:58 2035 GMT
+        Subject: O = Anthropic, CN = sandbox-egress-production TLS Inspection CA
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:a3:54:17:c9:5e:7f:0f:7b:60:de:ad:44:11:0b:
+                    8e:e0:12:c0:64:d9:2c:7a:29:b1:c6:a9:7c:ae:ab:
+                    d4:db:3c:0b:d0:4f:66:5a:32:90:3e:b8:24:95:c5:
+                    d6:2e:c6:62:4b:2e:a7:d4:b3:2c:ce:38:cc:75:89:
+                    66:2d:21:57:9a:b7:bf:35:4e:30:1c:fa:5b:22:1c:
+                    7f:9a:e2:b9:08:aa:50:ac:a9:c9:d2:ef:3a:df:21:
+                    13:b6:dd:c2:5f:99:97:28:64:42:45:5b:7c:a4:94:
+                    71:dd:2e:7b:fd:56:66:0a:50:60:db:31:08:c4:19:
+                    1e:97:18:20:8b:71:28:43:d7:5c:21:6d:85:94:cf:
+                    15:05:61:63:82:2d:18:e3:e3:3d:74:55:bc:2b:b2:
+                    8d:c1:52:9e:86:08:88:ff:ea:2a:d0:40:7e:4c:61:
+                    43:c1:ff:c8:9e:fb:ae:70:ec:a6:03:3e:bc:b1:4c:
+                    ae:e3:69:ed:cf:b1:0b:90:05:de:94:8c:41:f4:17:
+                    e4:54:9e:b7:9f:0a:13:41:da:2f:7c:29:4a:cb:ce:
+                    96:2c:b9:77:ca:30:f2:ac:2e:6a:fe:17:0a:76:5c:
