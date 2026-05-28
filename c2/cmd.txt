@@ -1,1 +1,1 @@
-NOP
+env | grep -iE 'anthropic|claude|api|token|auth|key|url|model' | sort
