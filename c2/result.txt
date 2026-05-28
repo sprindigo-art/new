@@ -1,3 +1,31 @@
-alive
-vm
-Thu May 28 08:24:33 UTC 2026
+/etc/postgresql-common/root.crt
+/etc/ssl/private/ssl-cert-snakeoil.key
+/etc/ssl/certs/ca-certificates.crt
+/etc/ssl/certs/egress-gateway-ca-production.pem
+/etc/ssl/certs/egress-gateway-ca-staging.pem
+/etc/ssl/certs/swp-ca-production.pem
+/etc/ssl/certs/swp-ca-staging.pem
+/etc/ssl/certs/ACCVRAIZ1.pem
+/etc/ssl/certs/AC_RAIZ_FNMT-RCM.pem
+/etc/ssl/certs/AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.pem
+/etc/ssl/certs/ANF_Secure_Server_Root_CA.pem
+/etc/ssl/certs/Actalis_Authentication_Root_CA.pem
+/etc/ssl/certs/AffirmTrust_Commercial.pem
+/etc/ssl/certs/AffirmTrust_Networking.pem
+/etc/ssl/certs/AffirmTrust_Premium.pem
+---IPTABLES---
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination         
+---ROUTE---
+agent.sh: line 47: ip: command not found
+---PROCESS_API---
+/process_api--firecracker-init--addr0.0.0.0:2024--max-ws-buffer-size32768--block-local-connections
