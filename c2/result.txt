@@ -1,8 +1,4 @@
-=== Test VPS1 ===
-Host not in allowlist=== Test VPS1 port 8080 ===
-=== Test arbitrary (google) ===
-Host not in allowlist=== DNS test ===
-agent.sh: line 47: nslookup: command not found
-=== Outbound ports ===
-agent.sh: connect: Connection timed out
-agent.sh: line 47: /dev/tcp/165.245.190.85/22: Connection timed out
+TEST1: Invalid token
+{"type":"error","error":{"type":"authentication_error","message":"Invalid bearer token"},"request_id":"req_011CbUeKszzk4gBHAY8G8DKk"}
+TEST2: No auth
+{"type":"error","error":{"type":"authentication_error","message":"x-api-key header is required"},"request_id":"req_011CbUeKtSY54UNguqPKkGRK"}
